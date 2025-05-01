@@ -1,0 +1,158 @@
+---
+title: "AI Agents"
+description: "Understanding the AI agents in ReedAI Assistant"
+---
+
+# AI Agents
+
+ReedAI Assistant employs specialized AI agents that are fine-tuned for specific development tasks. Each agent has unique capabilities and expertise areas.
+
+## What are AI Agents?
+
+In ReedAI Assistant, an AI agent is a specialized interface to the underlying language model (Claude 3.5 Sonnet) that is:
+
+1. **Task-optimized**: Configured with specific instructions for particular development tasks
+2. **Context-aware**: Maintains conversation history and project context
+3. **Tool-enabled**: Has access to specific tools and capabilities
+4. **Personality-driven**: Exhibits consistent communication style and expertise focus
+
+<Note>
+  All agents use Claude 3.5 Sonnet under the hood but with specialized system
+  prompts and capabilities.
+</Note>
+
+## Core Agents
+
+ReedAI Assistant includes five specialized AI agents:
+
+### Software Development Expert
+
+The Development Expert agent specializes in coding tasks:
+
+- **Expertise**: Programming languages, frameworks, libraries, debugging
+- **Use cases**: Writing code, fixing bugs, implementing features, code refactoring
+- **Special capabilities**: Code generation, error analysis, performance optimization
+
+<Tabs>
+  <Tab title="Example Prompt">
+    ```
+    Implement a React component that fetches data from an API and displays it in a table with sorting and filtering capabilities.
+    ```
+  </Tab>
+  <Tab title="Sample Response">
+    ```jsx
+    import { useState, useEffect } from 'react'
+    import { Table } from './ui/table'
+    import { Input } from './ui/input'
+    import { Button } from './ui/button'
+    
+    export function DataTable({ apiUrl }) {
+      const [data, setData] = useState([])
+      const [loading, setLoading] = useState(true)
+      const [error, setError] = useState(null)
+      const [sortField, setSortField] = useState(null)
+      const [sortDirection, setSortDirection] = useState('asc')
+      const [filterText, setFilterText] = useState('')
+      
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            setLoading(true)
+            const response = await fetch(apiUrl)
+            
+            if (!response.ok) {
+              throw new Error(`API error: ${response.status}`)
+            }
+            
+            const result = await response.json()
+            setData(result)
+            setError(null)
+          } catch (err) {
+            setError(err.message)
+          } finally {
+            setLoading(false)
+          }
+        }
+        
+        fetchData()
+      }, [apiUrl])
+      
+      // Sort and filter logic...
+      
+      return (
+        <div>
+          {/* Component implementation */}
+        </div>
+      )
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Documentation Specialist
+
+The Documentation Specialist excels at creating and maintaining documentation:
+
+- **Expertise**: Technical writing, API documentation, user guides
+- **Use cases**: Creating READMEs, API docs, user guides, in-code documentation
+- **Special capabilities**: Markdown formatting, documentation structure planning
+
+### Software Architect Code Reviewer
+
+The Code Reviewer agent analyzes code for quality, patterns, and improvements:
+
+- **Expertise**: Code quality, design patterns, best practices
+- **Use cases**: PR reviews, architecture evaluation, tech debt assessment
+- **Special capabilities**: Detailed analysis, context-aware suggestions
+
+### Git Operations Specialist
+
+The Git Specialist helps with version control workflows:
+
+- **Expertise**: Git commands, branching strategies, merge conflict resolution
+- **Use cases**: Branch naming, commit messages, merge strategies
+- **Special capabilities**: Git command generation, workflow recommendations
+
+### Architecture Specification Creator
+
+The Architecture Specialist helps design and document system architecture:
+
+- **Expertise**: System design, architecture patterns, component relationships
+- **Use cases**: Creating architecture diagrams, component specifications
+- **Special capabilities**: Diagram generation instructions, system design recommendations
+
+## Agent Capabilities Matrix
+
+Each agent has different strengths for various development tasks:
+
+| Task Type      | Development Expert | Documentation Specialist | Code Reviewer | Git Specialist | Architecture Specialist |
+| -------------- | ------------------ | ------------------------ | ------------- | -------------- | ----------------------- |
+| Coding         | ★★★★★              | ★★                       | ★★★           | ★              | ★★                      |
+| Documentation  | ★★                 | ★★★★★                    | ★★            | ★              | ★★★                     |
+| Code Review    | ★★★                | ★★                       | ★★★★★         | ★★             | ★★★                     |
+| Git Operations | ★★                 | ★                        | ★★            | ★★★★★          | ★                       |
+| Architecture   | ★★                 | ★★★                      | ★★★           | ★              | ★★★★★                   |
+
+## Agent Selection
+
+When using ReedAI Assistant, select the appropriate agent based on your task:
+
+<Warning>
+  Using the right agent for each task results in better quality output and more
+  efficient interactions.
+</Warning>
+
+- **New feature development**: Software Development Expert
+- **Creating project documentation**: Documentation Specialist
+- **Reviewing existing code**: Software Architect Code Reviewer
+- **Managing version control**: Git Operations Specialist
+- **Designing system architecture**: Architecture Specification Creator
+
+## Agent Customization
+
+You can customize agents to better match your project needs by:
+
+1. **Adjusting context**: Provide additional project information
+2. **Setting preferences**: Configure output formats and detail levels
+3. **Tool selection**: Enable or disable specific agent tools
+4. **Creating new agents**: Define custom agents for specific tasks

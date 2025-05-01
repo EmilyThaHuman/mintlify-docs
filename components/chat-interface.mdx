@@ -1,0 +1,251 @@
+---
+title: "Chat Interface"
+description: "Learn how to use the Chat Interface component"
+---
+
+# Chat Interface Component
+
+The Chat Interface is the primary way users interact with AI agents in ReedAI Assistant. It provides a clean, responsive interface for messaging, with support for rich content.
+
+## Basic Usage
+
+To implement the chat interface in your application:
+
+```jsx
+import { ChatInterface } from "./components/Chat/ChatInterface";
+import { useThreadStore } from "./store/threadStore";
+
+function ChatPage() {
+  const { activeThread } = useThreadStore();
+
+  return (
+    <div className="flex flex-col h-screen">
+      <header className="border-b p-4">
+        <h1 className="text-xl font-semibold">ReedAI Assistant</h1>
+      </header>
+
+      <main className="flex-1 overflow-hidden">
+        {activeThread ? (
+          <ChatInterface threadId={activeThread.id} />
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <p>Select or create a thread to start chatting</p>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+```
+
+## Props
+
+The `ChatInterface` component accepts the following props:
+
+| Prop              | Type      | Default     | Description                                     |
+| ----------------- | --------- | ----------- | ----------------------------------------------- |
+| `threadId`        | `string`  | Required    | ID of the thread to display                     |
+| `agentId`         | `string`  | `undefined` | Optional agent ID to override thread default    |
+| `initialMessage`  | `string`  | `undefined` | Optional message to send when thread is created |
+| `autoScroll`      | `boolean` | `true`      | Whether to auto-scroll to new messages          |
+| `className`       | `string`  | `''`        | Additional CSS classes                          |
+| `showThreadTitle` | `boolean` | `true`      | Show the thread title in the header             |
+
+## Examples
+
+<Tabs>
+  <Tab title="Basic Chat">
+    ```jsx
+    <ChatInterface threadId="thread_12345" />
+    ```
+  </Tab>
+  <Tab title="With Pre-configured Agent">
+    ```jsx
+    <ChatInterface threadId="thread_12345" agentId="development-expert" />
+    ```
+  </Tab>
+  <Tab title="With Initial Message">
+    ```jsx
+    <ChatInterface
+      threadId="thread_12345"
+      initialMessage="Create a React component for a dropdown menu."
+    />
+    ```
+  </Tab>
+</Tabs>
+
+## Message Rendering
+
+The Chat Interface handles several types of message content:
+
+1. **Text**: Plain text messages
+2. **Markdown**: Rich text with support for headings, lists, etc.
+3. **Code Blocks**: Syntax-highlighted code snippets
+4. **Image Attachments**: Display of image content
+5. **File Attachments**: Links to attached files
+6. **Interactive Elements**: Buttons, forms, and other interactive UI
+
+<Note>
+  The message rendering is handled by the `<MarkdownRenderer>` component which is documented separately.
+</Note>
+
+## Customization
+
+The Chat Interface can be customized in several ways:
+
+### Custom Styling
+
+You can customize the appearance using Tailwind CSS classes:
+
+```jsx
+<ChatInterface
+  threadId="thread_12345"
+  className="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-lg"
+/>
+```
+
+### Custom Message Renderer
+
+You can provide your own message renderer component:
+
+```jsx
+import { ChatInterface } from "./components/Chat/ChatInterface";
+import { CustomMessageRenderer } from "./components/CustomMessageRenderer";
+
+function CustomChat() {
+  return (
+    <ChatInterface
+      threadId="thread_12345"
+      messageRenderer={(message) => (
+        <CustomMessageRenderer
+          key={message.id}
+          message={message}
+          // Custom props
+          highlightCode={true}
+          showTimestamp={true}
+        />
+      )}
+    />
+  );
+}
+```
+
+## Input Options
+
+The Chat Interface includes a rich text input with several features:
+
+1. **Text Formatting**: Basic markdown formatting
+2. **File Attachments**: Upload and attach files
+3. **Code Snippets**: Special handling for code
+4. **Command Palette**: Quick commands via / prefix
+5. **Mentions**: @mentions for referencing items
+
+## Mobile Responsiveness
+
+The Chat Interface is fully responsive and works well on mobile devices:
+
+- Adapts layout for smaller screens
+- Supports touch interactions
+- Adjusts input methods for mobile
+- Handles keyboard appearance on mobile devices
+
+## Accessibility
+
+The Chat Interface includes several accessibility features:
+
+- Proper ARIA roles and labels
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast mode support
+- Focus management for new messages
+
+## Performance Considerations
+
+For optimal performance when using the Chat Interface:
+
+1. **Virtualization**: Messages are virtualized to handle large threads
+2. **Lazy Loading**: Images and attachments load lazily
+3. **Debounced Input**: Input events are debounced
+4. **Memoization**: Components use React.memo to prevent unnecessary re-renders
+
+<Warning>
+  For very long threads (1000+ messages), consider implementing pagination or
+  infinite scrolling.
+</Warning>
+
+## API Integration
+
+The Chat Interface integrates with the ReedAI Assistant API through the thread store:
+
+```jsx
+// This is handled automatically by the ChatInterface component
+import { useThreadStore } from "./store/threadStore";
+
+function sendMessage(threadId, content) {
+  const { sendMessage } = useThreadStore();
+  sendMessage(threadId, content);
+}
+```
+
+## Events
+
+The Chat Interface emits the following events:
+
+| Event               | Description                          |
+| ------------------- | ------------------------------------ |
+| `onMessageSent`     | Triggered when a message is sent     |
+| `onMessageReceived` | Triggered when a message is received |
+| `onError`           | Triggered when an error occurs       |
+| `onTypingStart`     | Triggered when the AI starts typing  |
+| `onTypingEnd`       | Triggered when the AI stops typing   |
+
+## ToolBox Component
+
+The ToolBox component provides access to the AI assistant's specialized tools directly from the chat interface. This component allows users to view available tools, toggle their activation, and see which tools are currently active in a conversation.
+
+### Tool Organization
+
+Tools are organized into categories for easy navigation:
+
+- **Images** - Image generation and analysis tools
+- **Web** - Internet search and web scraping tools
+- **Knowledge** - Information retrieval tools
+- **Data** - Data visualization and analysis tools
+- **Code** - Code execution and analysis tools
+- **Files** - File management tools
+- **Context7** - Documentation access tools
+- **Firecrawl** - Advanced web scraping tools
+- **Binance** - Cryptocurrency market data tools
+- **Gmail** - Email management tools
+- **GitHub** - Repository management tools
+- **Reddit** - Reddit interaction tools
+- **Sequential Thinking** - Step-by-step reasoning tools
+- **Google Drive** - Document management tools
+- **Slack** - Workspace communication tools
+
+### Using the ToolBox
+
+1. **Accessing Tools**: Click the toolbox icon in the chat input area to open the ToolBox
+2. **Browsing Categories**: Expand categories to view available tools
+3. **Activating Tools**: Toggle tools on/off by clicking them
+4. **Active Tool Indicator**: Currently active tools appear highlighted and are displayed as icons in the chat input
+
+### Tool Permissions
+
+Some tools require authentication or specific permissions:
+
+- **Google Drive**: Requires Google account authorization
+- **Gmail**: Requires email account access
+- **GitHub**: Requires GitHub account authorization
+- **Slack**: Requires Slack workspace authorization
+
+The ToolBox will prompt for necessary permissions when activating these tools.
+
+### Tool Usage
+
+Tools can be used in two ways:
+
+1. **AI-Initiated**: The assistant automatically uses appropriate tools based on your query
+2. **User-Prompted**: You can specifically ask the assistant to use a particular tool
+
+For more information on available tools and their capabilities, see the [Tool Library](/concepts/tools) documentation.

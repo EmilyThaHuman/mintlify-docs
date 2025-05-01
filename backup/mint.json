@@ -7,18 +7,18 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#8B5CF6",
-    "light": "#A78BFA",
-    "dark": "#7C3AED",
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
     "anchors": {
-      "from": "#8B5CF6",
-      "to": "#A78BFA"
+      "from": "#0D9373",
+      "to": "#07C983"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "contact@artifact.chat"
+      "url": "mailto:hi@mintlify.com"
     }
   ],
   "topbarCtaButton": {

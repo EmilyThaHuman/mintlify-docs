@@ -1,86 +1,90 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quickstart"
+description: "Get up and running with ReedAI Assistant in minutes"
 ---
 
-## Setup your development
+# Quickstart Guide
 
-Learn how to update your docs locally and deploy them to the public.
+This guide will help you get ReedAI Assistant up and running in your development environment.
 
-### Edit and preview
+## Prerequisites
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+Before you begin, make sure you have the following installed:
 
-### Deploy your changes
+- Node.js 16.x or higher
+- npm 7+ or yarn 1.22+
+- Git
 
-<AccordionGroup>
+<Note>
+  ReedAI Assistant requires environment variables for API access. Make sure to
+  set these up before using the application.
+</Note>
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+## Installation
 
-</AccordionGroup>
+<Steps>
+  <Step title="Clone the Repository">
+    ```bash
+    git clone https://github.com/yourusername/reedai-assistant.git
+    cd reedai-assistant
+    ```
+  </Step>
 
-## Update your docs
+<Step title="Install Dependencies">
+  ```bash npm install # or yarn install ```
+</Step>
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+  <Step title="Configure Environment Variables">
+    Create a `.env` file in the root directory by copying the example:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Then edit the `.env` file to add your API keys:
+
+    ```
+    ANTHROPIC_API_KEY=your_anthropic_api_key
+    OPENAI_API_KEY=your_openai_api_key
+    # Add other required environment variables
+    ```
+
+  </Step>
+
+  <Step title="Start the Development Server">
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+  </Step>
+</Steps>
+
+## Accessing the Application
+
+Once the development server is running, you can access the application at:
+
+```
+http://localhost:5173
+```
+
+## Next Steps
+
+Now that you have ReedAI Assistant up and running, you can:
+
+1. **Configure Your Agents**: Customize the AI agents to match your development needs.
+2. **Create Your First Thread**: Start a new conversation with one of the specialized agents.
+3. **Explore the Features**: Try out code generation, documentation creation, and more.
 
 <CardGroup>
-
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
-
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
+  <Card title="AI Agents" icon="robot" href="/concepts/ai-agents">
+    Learn about the specialized AI agents
+  </Card>
+  <Card
+    title="Architecture"
+    icon="diagram-project"
+    href="/concepts/architecture"
+  >
+    Learn how ReedAI Assistant works
+  </Card>
 </CardGroup>

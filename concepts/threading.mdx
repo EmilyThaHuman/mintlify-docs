@@ -1,0 +1,122 @@
+---
+title: "Message Threading"
+description: "Understanding conversation threading in ReedAI Assistant"
+---
+
+# Message Threading
+
+ReedAI Assistant uses a threading model to organize conversations and maintain context across interactions. This page explains how threading works and how to effectively use it.
+
+## What is Threading?
+
+In ReedAI Assistant, a thread represents a persistent conversation with an AI agent. Threads have the following characteristics:
+
+1. **Persistence**: Threads are saved and can be resumed later
+2. **Context**: Threads maintain conversation history for context
+3. **Organization**: Threads group related messages together
+4. **Specialization**: Threads can be associated with specific agents or tasks
+
+<Note>
+  Threads are designed to help organize work into logical units, similar to
+  discussions in a project management tool.
+</Note>
+
+## Thread Components
+
+A thread in ReedAI Assistant consists of:
+
+- **Thread ID**: Unique identifier for the thread
+- **Thread Title**: Descriptive name for the conversation
+- **Agent Type**: The AI agent associated with the thread
+- **Created At**: Timestamp of thread creation
+- **Updated At**: Timestamp of last message
+- **Messages**: Sequence of user messages and AI responses
+
+## Thread Lifecycle
+
+Threads follow a standard lifecycle:
+
+1. **Creation**: A new thread is created when starting a new conversation
+2. **Active Use**: Messages are added to the thread during conversation
+3. **Archiving**: Threads can be archived when no longer needed
+4. **Deletion**: Threads can be permanently deleted
+
+## Context Management
+
+Threading provides several benefits for context management:
+
+### Context Retention
+
+Each thread maintains its conversation history, allowing the AI to reference previous messages. This provides:
+
+- **Continuity**: Follow-up questions work naturally
+- **Reference**: The AI can refer to previous code snippets or explanations
+- **Evolution**: Ideas can develop over multiple exchanges
+
+### Context Limitations
+
+There are some limitations to be aware of:
+
+- **Context Window**: Claude 3.5 has a finite context window (approximately 200,000 tokens)
+- **Relevance Decay**: Very long threads may have older messages that become less relevant
+- **Performance**: Extremely long threads may impact performance
+
+<Warning>
+  For very long projects, consider creating multiple focused threads rather than
+  a single massive thread.
+</Warning>
+
+## Thread Organization
+
+ReedAI Assistant provides several ways to organize threads:
+
+### Thread Naming
+
+Threads can be named descriptively to indicate their purpose:
+
+- **Feature-based**: "User Authentication Implementation"
+- **Task-based**: "Debugging Memory Leak"
+- **Project-based**: "E-commerce Checkout Flow"
+
+### Thread Filtering
+
+Threads can be filtered by:
+
+- Creation date
+- Last updated date
+- Agent type
+- Custom tags
+
+### Thread Archiving
+
+Completed threads can be archived to reduce clutter while preserving the conversation.
+
+## Thread Best Practices
+
+To get the most out of ReedAI Assistant's threading system:
+
+1. **Create focused threads**: Each thread should address a specific task or topic
+2. **Use descriptive names**: Thread names should clearly indicate the purpose
+3. **Maintain reasonable length**: Split very large tasks into multiple threads
+4. **Provide context**: When starting a new thread, provide relevant project context
+5. **Archive completed threads**: Keep your workspace organized
+
+## Thread Sharing and Collaboration
+
+Threads can be shared with team members by:
+
+1. **Exporting**: Threads can be exported as Markdown or JSON
+2. **Linking**: Direct links to threads can be shared
+3. **Publishing**: Threads can be published as read-only references
+
+## Example Thread Structure
+
+A typical development thread might follow this pattern:
+
+1. **Initial request**: User describes the feature to implement
+2. **Requirements clarification**: AI asks questions to understand requirements
+3. **Implementation plan**: AI proposes an approach
+4. **Code generation**: AI provides implementation code
+5. **Testing strategy**: AI suggests testing approach
+6. **Iterations**: User and AI refine the implementation
+7. **Documentation**: AI helps document the feature
