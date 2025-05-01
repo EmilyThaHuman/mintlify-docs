@@ -1,69 +1,109 @@
 ---
-title: "ReedAI Assistant"
-description: "An advanced AI-powered development platform combining multiple specialized agents to assist with software development, documentation, and code review."
+title: "Quickstart"
+description: "Get started with Artifact Chat in minutes"
 ---
 
-# ReedAI Assistant
+# Quickstart Guide
 
-<div className="flex justify-center my-6">
-  <img src="/AI.svg" alt="ReedAI Assistant Logo" width="150" />
-</div>
+This guide will help you get Artifact Chat up and running quickly.
 
-<Note>
-  ReedAI Assistant combines the power of Claude 3.5 with specialized development
-  workflows to enhance your productivity.
-</Note>
+## Prerequisites
 
-## What is ReedAI Assistant?
+Before you begin, make sure you have:
 
-ReedAI Assistant is an intelligent conversational AI platform designed specifically for software development teams. It leverages Claude 3.5 to provide intelligent assistance across the entire development lifecycle, from planning and coding to documentation and review.
+1. **Node.js** (v16 or higher)
+2. **npm**, **yarn**, or **pnpm**
+3. **API keys** for Anthropic, OpenAI, or other supported LLM providers
 
-## Key Features
+## Step 1: Installation
 
-### Real-time Chat Interface
+<CodeGroup>
+```bash npm
+git clone https://github.com/yourusername/artifact-chat.git
+cd artifact-chat
+npm install
+```
 
-- Rich markdown message rendering with syntax highlighting
-- Interactive code blocks with copy functionality
-- Smart message threading and annotations
-- Elegant loading states and animations
-- Responsive design for all devices
+```bash yarn
+git clone https://github.com/yourusername/artifact-chat.git
+cd artifact-chat
+yarn install
+```
 
-### AI Development Agents
+```bash pnpm
+git clone https://github.com/yourusername/artifact-chat.git
+cd artifact-chat
+pnpm install
+```
 
-- **Software Development Expert Agent** - Assists with coding tasks, debugging, and optimization
-- **Documentation Specialist Agent** - Helps create and maintain documentation
-- **Software Architect Code Reviewer** - Provides in-depth code reviews and architectural feedback
-- **Git Operations Specialist** - Manages git workflows and best practices
-- **Architecture Specification Creator** - Designs and documents system architecture
+</CodeGroup>
 
-### Intelligent Documentation
+## Step 2: Configuration
 
-- Next-gen API documentation generation
-- Interactive README creation
-- Swagger specification automation
-- Context-aware documentation updates
+Create a `.env` file in the root directory:
 
-### Code Management
+```bash
+cp .env.example .env
+```
 
-- Smart branch naming
-- Semantic commit messages
-- Comprehensive PR reviews
-- GitHub issue creation
-- Code architecture analysis
+Edit the `.env` file to add your API keys:
 
-## Get Started
+```
+ANTHROPIC_API_KEY=your_api_key_here
+OPENAI_API_KEY=your_api_key_here
+```
 
-Ready to enhance your development workflow with AI? Check out our [Quickstart](/quickstart) guide to get up and running in minutes.
+## Step 3: Start the Development Server
 
-<CardGroup>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Get started with ReedAI Assistant
+<CodeGroup>
+```bash npm
+npm run dev
+```
+
+```bash yarn
+yarn dev
+```
+
+```bash pnpm
+pnpm dev
+```
+
+</CodeGroup>
+
+The development server will start at [http://localhost:3000](http://localhost:3000).
+
+## Step 4: Using Artifact Chat
+
+1. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+2. Create a new chat or project
+3. Start asking questions or providing instructions
+
+<Frame>
+  <img
+    src="/images/quickstart-example.png"
+    alt="Artifact Chat Interface Example"
+  />
+</Frame>
+
+## Next Steps
+
+Explore these resources to learn more about Artifact Chat:
+
+<CardGroup cols={2}>
+  <Card title="Core Concepts" icon="lightbulb" href="/concepts/architecture">
+    Learn about the architecture and core concepts behind Artifact Chat
+  </Card>
+  <Card title="Tool Library" icon="wrench" href="/concepts/tools">
+    Explore the available tools and integrations
   </Card>
   <Card
-    title="Architecture"
-    icon="diagram-project"
-    href="/concepts/architecture"
+    title="Customization Guide"
+    icon="sliders"
+    href="/guides/customizing-tools"
   >
-    Learn how ReedAI Assistant works
+    Customize Artifact Chat to fit your specific needs
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/authentication">
+    Integrate Artifact Chat with your own applications
   </Card>
 </CardGroup>

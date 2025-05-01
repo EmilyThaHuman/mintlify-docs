@@ -1,485 +1,124 @@
 ---
 title: "Customizing Tools"
-description: "Guide to extending and customizing the ReedAI Assistant Tool Library"
+description: "Guide to extending and customizing the Artifact Chat Tool Library"
 ---
 
 # Customizing the Tool Library
 
-This guide walks you through the process of extending the ReedAI Assistant Tool Library with custom tools and integrations. By creating your own tools, you can enhance the AI's capabilities with domain-specific functions tailored to your needs.
+This guide walks you through the process of attaching and customizing tools for your Artifact Chat assistants.
 
-## Understanding the Tool Architecture
+## Understanding Tool Categories
 
-Before creating custom tools, it's important to understand the core architecture:
+Before attaching tools to your assistants, it's important to understand the different tool categories available:
 
-1. **BaseTool**: The foundation class that all tools extend
-2. **ToolRegistry**: The system that manages and provides access to tools
-3. **Tool Execution Flow**: How tools are selected, executed, and how results are handled
+| Category                | Description                        | Examples                            |
+| ----------------------- | ---------------------------------- | ----------------------------------- |
+| **Images**              | Image generation and analysis      | DALL-E, Midjourney, Image Analysis  |
+| **Web**                 | Internet search and scraping       | Web Search, Web Scraper, Site Crawler |
+| **Knowledge**           | Information retrieval and analysis | Documentation, Deep Research        |
+| **Data**                | Data visualization and analysis    | Chart Generation, CSV Creation      |
+| **Code**                | Code analysis and generation       | Code Interpreter, File Analysis     |
+| **Files**               | File operations and management     | File Search, File Analysis          |
+| **GitHub**              | Repository management              | Repo Search, Issue Management       |
+| **Gmail**               | Email management                   | Send Email, Search Emails           |
+| **Sequential Thinking** | Step-by-step reasoning             | Sequential Thinking                 |
 
-For a complete overview of this architecture, see the [Tool Library](/concepts/tools) documentation.
-
-## Creating a Basic Custom Tool
-
-Let's walk through creating a simple custom tool that fetches weather data for a location:
+## Attaching Tools to Assistants
 
 <Steps>
-  <Step title="Create Tool File">
-    Create a new file in the appropriate category directory:
-    ```bash
-    src/lib/ai/functions/Tools/web/weatherTool.js
-    ```
+  <Step title="Access Tool Settings">
+    Open the assistant you want to customize and click the "Settings" button, then navigate to the "Tools" section.
   </Step>
   
-  <Step title="Import Dependencies">
-    ```javascript
-    import { BaseTool } from "../base/BaseTool.js";
-    import axios from "axios";
-    import { rateLimit } from "@/lib/utils/rateLimiter";
-    ```
+  <Step title="Browse Available Tools">
+    Browse through the available tools organized by categories. Each tool displays:
+    - Name and description
+    - Category indicator (color-coded)
+    - Icon representing its function
   </Step>
   
-  <Step title="Implement Tool Function">
-    ```javascript
-    /**
-     * Fetches current weather data for a location
-     * @param {Object} params - Weather request parameters
-     * @returns {Promise<Object>} - The weather data
-     */
-    export const getWeather = async (params) => {
-      const { location, units = "metric" } = params;
-      
-      try {
-        // Apply rate limiting
-        await rateLimit("weather_api", {
-          maxRequests: 50,
-          perMinute: true,
-        });
-        
-        // Validate input
-        if (!location) {
-          return {
-            status: "error",
-            error: "No location provided",
-            result: {
-              metadata: {
-                timestamp: new Date().toISOString(),
-              },
-            },
-          };
-        }
-        
-        // Make API request (replace with your weather API)
-        const response = await axios.get(
-          `https://api.weatherapi.com/v1/current.json`,
-          {
-            params: {
-              key: process.env.WEATHER_API_KEY,
-              q: location,
-              units,
-            },
-          }
-        );
-        
-        // Return success response
-        return {
-          status: "success",
-          result: {
-            data: response.data,
-            metadata: {
-              timestamp: new Date().toISOString(),
-              location,
-              units,
-              source: "weatherapi",
-            },
-          },
-        };
-      } catch (error) {
-        // Handle errors
-        console.error(`Weather API request failed:`, error);
-        
-        return {
-          status: "error",
-          error: error.message || "Failed to fetch weather data",
-          details: error.stack,
-          result: {
-            metadata: {
-              timestamp: new Date().toISOString(),
-              location,
-              units,
-            },
-          },
-        };
-      }
-    };
-    ```
+  <Step title="Select Tools">
+    Click on tools to select them for your assistant. Consider which tools align with your assistant's purpose.
   </Step>
   
-  <Step title="Create Tool Instance">
-    ```javascript
-    /**
-     * Weather information tool
-     */
-    export const weatherTool = new BaseTool({
-      id: "weather_data",
-      name: "Weather Information",
-      description: "Get current weather conditions for a location",
-      type: "function",
-      category: "web",
-      icon: "cloud-sun",
-      options: {
-        rateLimit: { maxRequests: 10, perMinute: true },
-      },
-      runInstructions:
-        "Use this tool to get current weather information for a specific location. Specify a city name or coordinates.",
+  <Step title="Configure Tools">
+    Some tools may require configuration:
+    - API keys for external services
+    - Usage limits
+    - Default parameters
     
-      definition: {
-        type: "function",
-        function: {
-          name: "weather_data",
-          description: "Get current weather conditions for a location",
-          parameters: {
-            type: "object",
-            properties: {
-              location: {
-                type: "string",
-                description: "The location (city name, coordinates, etc.)",
-              },
-              units: {
-                type: "string",
-                description: "Temperature units",
-                enum: ["metric", "imperial"],
-                default: "metric",
-              },
-            },
-            required: ["location"],
-          },
-        },
-      },
-    
-      execute: getWeather,
-    });
-    
-    export default weatherTool;
-    ```
+    Complete any necessary configuration for each selected tool.
   </Step>
   
-  <Step title="Export and Register">
-    Add your tool to the `src/lib/ai/functions/Tools/index.js` file:
-    
-    ```javascript
-    /* -- web tools -- */
-    export * from "./web/serperWebSearchToolV2";
-    export * from "./web/siteCrawlerTool";
-    export * from "./web/webScraperFirecrawlTool";
-    export * from "./web/weatherTool"; // Add your new tool
-    ```
+  <Step title="Save Changes">
+    Click "Save" to apply your tool selections to the assistant.
   </Step>
 </Steps>
 
-## Tool Testing and Debugging
+## Tool Selection Best Practices
 
-Before deploying your custom tool, it's important to test it thoroughly:
+Consider these best practices when selecting tools for your assistants:
 
-<Tabs>
-  <Tab title="Local Testing">
-    Create a test file to invoke your tool directly:
-    
-    ```javascript
-    // test-weather-tool.js
-    import { weatherTool } from "./src/lib/ai/functions/Tools/web/weatherTool";
-    
-    async function testWeatherTool() {
-      try {
-        const result = await weatherTool.execute({ 
-          location: "London", 
-          units: "metric" 
-        });
-        console.log("Tool result:", JSON.stringify(result, null, 2));
-      } catch (error) {
-        console.error("Tool execution failed:", error);
-      }
-    }
-    
-    testWeatherTool();
-    ```
-    
-    Run with:
-    ```bash
-    node -r dotenv/config test-weather-tool.js
-    ```
-  </Tab>
-  
-  <Tab title="Integration Testing">
-    Test your tool in the actual assistant conversation:
-    
-    1. Start your development server
-    2. Open a conversation with the assistant
-    3. Ask a question that would trigger your tool
-    4. Check console logs for tool execution details
-    5. Verify the assistant's response incorporates tool data correctly
-  </Tab>
-</Tabs>
+1. **Purpose Alignment**: Choose tools that directly support your assistant's core purpose
+2. **Minimize Complexity**: Avoid adding unnecessary tools that may confuse the assistant
+3. **Consider Cost**: Some tools make API calls that incur usage costs
+4. **Balance Capabilities**: Combine complementary tools for enhanced functionality
+5. **Test Thoroughly**: Verify that selected tools work well together
 
-## Advanced Tool Development
+## Tool Limitations and Considerations
 
-### Adding Authentication
+When working with tools, be aware of these limitations:
 
-For tools that require authentication:
+- **Rate Limits**: Tools have defined rate limits to prevent abuse
+- **API Dependencies**: External services used by tools may have their own limitations
+- **Authentication**: Some tools require specific API keys or permissions
+- **Cost Factors**: Certain tools may have usage costs associated with them
+- **Execution Time**: Complex tools may take longer to execute
 
-```javascript
-const executeWithAuth = async (params) => {
-  // Get credentials from environment or secure storage
-  const apiKey = process.env.MY_SERVICE_API_KEY;
-  const apiSecret = process.env.MY_SERVICE_API_SECRET;
+## Recommended Tool Combinations
 
-  // Create authenticated client
-  const client = new MyServiceClient({
-    apiKey,
-    apiSecret,
-  });
-
-  // Execute authenticated request
-  const result = await client.performAction(params);
-
-  return {
-    status: "success",
-    result: {
-      data: result,
-      metadata: {
-        timestamp: new Date().toISOString(),
-      },
-    },
-  };
-};
-```
-
-### Adding Streaming Support
-
-For tools that support streaming responses:
-
-```javascript
-const streamingToolExecute = async (params, { onProgress }) => {
-  // Create streaming request
-  const stream = myStreamingService.createStream(params);
-
-  // Handle chunks as they arrive
-  stream.on("data", (chunk) => {
-    onProgress({
-      type: "chunk",
-      data: chunk,
-    });
-  });
-
-  // Return final result when stream completes
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-
-    stream.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
-
-    stream.on("end", () => {
-      resolve({
-        status: "success",
-        result: {
-          data: chunks.join(""),
-          metadata: {
-            timestamp: new Date().toISOString(),
-            chunks: chunks.length,
-          },
-        },
-      });
-    });
-
-    stream.on("error", (err) => {
-      reject(err);
-    });
-  });
-};
-```
-
-## Best Practices
-
-### Security Considerations
-
-1. **API Key Management**: Never hardcode API keys in your tool code
-2. **Input Validation**: Always validate user inputs to prevent injection attacks
-3. **Rate Limiting**: Implement rate limiting to prevent abuse
-4. **Error Handling**: Don't expose sensitive information in error messages
-5. **Permission Checks**: Verify user permissions before performing sensitive operations
-
-### Performance Optimization
-
-1. **Caching**: Cache results when appropriate to reduce API calls
-
-   ```javascript
-   const cache = new Map();
-
-   const getCachedOrFetch = async (key, fetchFn) => {
-     if (cache.has(key)) {
-       return cache.get(key);
-     }
-
-     const result = await fetchFn();
-     cache.set(key, result);
-     return result;
-   };
-   ```
-
-2. **Concurrent Requests**: Use Promise.all for parallel operations
-
-   ```javascript
-   const results = await Promise.all([
-     api.fetchData("endpoint1"),
-     api.fetchData("endpoint2"),
-     api.fetchData("endpoint3"),
-   ]);
-   ```
-
-3. **Timeouts**: Add timeouts to prevent hanging operations
-
-   ```javascript
-   const fetchWithTimeout = async (url, options, timeout = 5000) => {
-     const controller = new AbortController();
-     const id = setTimeout(() => controller.abort(), timeout);
-
-     try {
-       const response = await fetch(url, {
-         ...options,
-         signal: controller.signal,
-       });
-       clearTimeout(id);
-       return response;
-     } catch (error) {
-       clearTimeout(id);
-       throw error;
-     }
-   };
-   ```
-
-## Tool Icons and Categories
-
-When creating custom tools, it's important to properly set icons and categories to ensure good integration with the ToolBox UI component.
-
-### Tool Categories
-
-The system organizes tools into categories that determine how they appear in the ToolBox interface. When creating a custom tool, choose from these established categories:
-
-```javascript
-// When creating a new tool, set its category to one of these values
-export const myTool = new BaseTool({
-  // ... other properties
-  category: "web", // Choose from available categories
-  // ...
-});
-```
-
-Available categories include:
-
-| Category    | Description                     | Color              |
-| ----------- | ------------------------------- | ------------------ |
-| `images`    | Image generation and analysis   | Fuchsia (#d946ef)  |
-| `web`       | Internet search and scraping    | Green (#22c55e)    |
-| `knowledge` | Information retrieval           | Yellow (#eab308)   |
-| `data`      | Data visualization and analysis | Indigo (#6366f1)   |
-| `code`      | Code analysis and generation    | Violet (#8b5cf6)   |
-| `files`     | File operations                 | Red (#ef4444)      |
-| `analysis`  | Text and data analysis          | Blue (#3b82f6)     |
-| `context7`  | Documentation access            | Sky Blue (#0ea5e9) |
-| `firecrawl` | Advanced web scraping           | Orange (#f97316)   |
-| `binance`   | Cryptocurrency data             | Yellow (#eab308)   |
-| `gmail`     | Email management                | Red (#dc2626)      |
-| `github`    | Repository management           | Black (#24292e)    |
-| `reddit`    | Reddit interaction              | Orange (#ff4500)   |
-| `thinking`  | Step-by-step reasoning          | Cyan (#06b6d4)     |
-| `drive`     | Document management             | Blue (#2563eb)     |
-| `slack`     | Workspace communication         | Purple (#7c3aed)   |
-
-### Tool Icons
-
-The `icon` property determines how your tool appears in the interface. You can use any of the available icon names from the application's icon library:
-
-```javascript
-export const myTool = new BaseTool({
-  // ... other properties
-  icon: "globe", // Choose from available icons
-  // ...
-});
-```
-
-Common icon names include:
-
-- `magnifying-glass` - For search tools
-- `code` - For code-related tools
-- `file` - For file tools
-- `chart-line` - For data visualization tools
-- `database` - For data tools
-- `globe` - For web tools
-- `image` - For image tools
-- `book` - For knowledge tools
-- `wrench` - For utility tools
-
-For specialized tools that need custom icons, the system provides special icon components for specific services like Google Drive, GitHub, Gmail, and others. These are automatically applied based on the tool's ID or category.
-
-### Example: Complete Tool with Icon and Category
-
-```javascript
-import { BaseTool } from "../base/BaseTool.js";
-
-export const weatherTool = new BaseTool({
-  id: "weather_data",
-  name: "Weather Information",
-  description: "Get current weather conditions for a location",
-  type: "function",
-  category: "web", // Category for organization in the ToolBox
-  icon: "cloud-sun", // Icon for visual identification
-  options: {
-    rateLimit: { maxRequests: 10, perMinute: true },
-  },
-  runInstructions:
-    "Use this tool to get current weather information for a specific location.",
-
-  definition: {
-    type: "function",
-    function: {
-      name: "weather_data",
-      description: "Get current weather conditions for a location",
-      parameters: {
-        type: "object",
-        properties: {
-          location: {
-            type: "string",
-            description: "The location (city name, coordinates, etc.)",
-          },
-          units: {
-            type: "string",
-            description: "Temperature units",
-            enum: ["metric", "imperial"],
-            default: "metric",
-          },
-        },
-        required: ["location"],
-      },
-    },
-  },
-
-  execute: async (params) => {
-    // Tool implementation
-    // ...
-  },
-});
-```
-
-Following these guidelines ensures your custom tools integrate seamlessly with the ToolBox UI component and provide a consistent user experience.
-
-## Conclusion
-
-Creating custom tools allows you to significantly extend the capabilities of the ReedAI Assistant. By following the patterns and best practices outlined in this guide, you can build robust, secure, and efficient tools that integrate seamlessly with the existing system.
+These tool combinations work well for specific assistant types:
 
 <CardGroup>
-  <Card title="Tool Library Reference" icon="book" href="/concepts/tools">
-    Learn more about the tool architecture
+  <Card title="Research Assistant" icon="book">
+    Web Search + Web Scraper + Deep Research
   </Card>
-  <Card title="API Reference" icon="code" href="/api-reference/authentication">
-    View the API documentation
+  <Card title="Creative Assistant" icon="paintbrush">
+    DALL-E + Midjourney + Image Analysis
+  </Card>
+  <Card title="Development Assistant" icon="code">
+    Code Interpreter + GitHub Tools + Documentation
+  </Card>
+  <Card title="Data Analyst" icon="chart-column">
+    Code Interpreter + Chart Generation + CSV Creation
+  </Card>
+  <Card title="Productivity Assistant" icon="calendar">
+    Gmail Tools + Google Drive + Slack
+  </Card>
+</CardGroup>
+
+## Customizing Tool Behavior
+
+While you cannot modify the core functionality of built-in tools, you can influence how they're used through your assistant's system prompt:
+
+<Tip>
+  Add tool-specific instructions to your system prompt to guide how the assistant should use particular tools. For example:
+  
+  "When using the Web Search tool, always verify information from multiple sources and cite your references."
+  
+  "For image generation tools, start with low-detail descriptions and iteratively refine based on generated results."
+</Tip>
+
+## Next Steps
+
+<CardGroup>
+  <Card title="Customizing Assistants" icon="robot" href="/guides/customizing-assistants">
+    Learn how to customize your assistant's model, name, and system prompt
+  </Card>
+  <Card title="Tool Library" icon="toolbox" href="/concepts/tools">
+    Explore the full range of available tools
+  </Card>
+  <Card title="AI Agents" icon="microchip" href="/concepts/ai-agents">
+    Understand how AI agents work with tools
   </Card>
 </CardGroup>

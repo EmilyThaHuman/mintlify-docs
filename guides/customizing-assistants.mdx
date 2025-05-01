@@ -1,0 +1,262 @@
+---
+title: "Customizing Assistants"
+description: "Guide to customizing your AI assistants with different models, personas, and tools"
+---
+
+# Customizing Assistants
+
+This guide walks you through the process of customizing your AI assistants to better meet your needs by selecting different models, setting up custom personas, and attaching specialized tools.
+
+## Model Selection
+
+Choose from a variety of AI models from leading providers to power your assistants:
+
+<CardGroup cols={3}>
+  <Card title="OpenAI" icon="openai" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">GPT-4o</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">GPT-4o mini</span>
+        <span className="text-xs text-gray-500">Balanced</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">GPT-3.5 Turbo</span>
+        <span className="text-xs text-gray-500">Fast & affordable</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Anthropic" icon="sparkles" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Claude 3 Opus</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Claude 3 Sonnet</span>
+        <span className="text-xs text-gray-500">Balanced</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Claude 3 Haiku</span>
+        <span className="text-xs text-gray-500">Fast & affordable</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Google" icon="google" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Gemini 1.5 Pro</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Gemini 1.5 Flash</span>
+        <span className="text-xs text-gray-500">Fast & affordable</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Meta" icon="meta" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Llama 3 70B</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Llama 3 8B</span>
+        <span className="text-xs text-gray-500">Fast & affordable</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Mistral" icon="wind" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Mistral Large</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Mistral Medium</span>
+        <span className="text-xs text-gray-500">Balanced</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Mistral Small</span>
+        <span className="text-xs text-gray-500">Fast & affordable</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Cohere" icon="c" iconType="duotone">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Command R+</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Command R</span>
+        <span className="text-xs text-gray-500">Balanced</span>
+      </div>
+    </div>
+  </Card>
+</CardGroup>
+
+<Note>
+  When selecting a model, consider the trade-off between capability and cost. More powerful models like GPT-4o and Claude 3 Opus provide superior reasoning and assistance but at a higher price point.
+</Note>
+
+## Customizing Name, Description, and System Prompt
+
+Customize your assistant's persona by setting a name, description, and system prompt:
+
+<Steps>
+  <Step title="Navigate to Assistant Settings">
+    Open the assistant you want to customize and click the "Settings" button in the top-right corner of the assistant panel.
+  </Step>
+  
+  <Step title="Set a Custom Name">
+    Enter a meaningful name for your assistant that reflects its purpose or persona. For example:
+    
+    - "Research Assistant"
+    - "Code Review Expert"  
+    - "Marketing Copywriter"
+  </Step>
+  
+  <Step title="Add a Description">
+    Write a brief description that explains the assistant's purpose, expertise, and capabilities. This helps users understand when to use this particular assistant.
+    
+    Example:
+    ```
+    A specialized research assistant with expertise in academic literature review, 
+    data analysis, and citation management. Ideal for students and researchers 
+    working on scholarly projects.
+    ```
+  </Step>
+  
+  <Step title="Create a System Prompt">
+    The system prompt is the most important element for defining your assistant's behavior. It provides instructions that guide how the AI responds to queries.
+    
+    <Tip>
+      A well-crafted system prompt should define:
+      - The assistant's role and identity
+      - Areas of expertise and knowledge
+      - Communication style and tone
+      - Any limitations or boundaries
+      - Specific instructions for how to approach different types of queries
+    </Tip>
+    
+    Example system prompt for a research assistant:
+    ```
+    You are a highly knowledgeable research assistant with expertise in academic writing, 
+    research methodology, and data analysis. Your primary goal is to help users conduct 
+    thorough research, find relevant sources, and organize information effectively.
+
+    When helping with research:
+    - Ask clarifying questions to understand the specific research topic and goals
+    - Provide balanced information from multiple perspectives
+    - Cite sources whenever possible and prioritize scholarly sources
+    - Explain complex concepts clearly using analogies when helpful
+    - Suggest relevant research questions and methodological approaches
+    
+    When analyzing data:
+    - Describe appropriate statistical methods based on the research question and data type
+    - Explain how to interpret results with proper caution about limitations
+    - Suggest visualizations that would best communicate the findings
+    
+    Communicate in a professional but accessible tone. Avoid overly technical jargon 
+    unless necessary, and always explain specialized terms. Prioritize accuracy over 
+    certainty, and be transparent about the limitations of your knowledge.
+    ```
+  </Step>
+</Steps>
+
+### Using the Generate System Prompt Button
+
+For a quick start, you can use the "Generate System Prompt" button to create a baseline system prompt:
+
+<Steps>
+  <Step title="Click Generate System Prompt">
+    In the assistant settings panel, locate and click the "Generate System Prompt" button.
+  </Step>
+  
+  <Step title="Provide a Brief Description">
+    Enter a short description of the assistant you want to create. For example:
+    ```
+    A helpful coding assistant that specializes in React and JavaScript development
+    ```
+  </Step>
+  
+  <Step title="Review and Edit">
+    The system will generate a comprehensive system prompt based on your description. Review the generated prompt and make any necessary edits to better align with your specific needs.
+  </Step>
+  
+  <Step title="Save Changes">
+    Once you're satisfied with the system prompt, click "Save" to apply the changes to your assistant.
+  </Step>
+</Steps>
+
+<Warning>
+  Even when using the generate feature, always review the system prompt carefully. The generated prompt serves as a starting point that you should customize to ensure it precisely matches your requirements.
+</Warning>
+
+## Attaching Tools to Assistants
+
+Enhance your assistant's capabilities by attaching specialized tools that allow it to perform specific tasks:
+
+<Steps>
+  <Step title="Access Tool Settings">
+    In the assistant settings panel, navigate to the "Tools" section.
+  </Step>
+  
+  <Step title="Browse Available Tools">
+    Browse through the available tools organized by categories such as Web, Images, Data, and Code.
+  </Step>
+  
+  <Step title="Select Relevant Tools">
+    Choose tools that align with your assistant's purpose. For example:
+    
+    - A research assistant might benefit from Web Search and Web Scraper tools
+    - A coding assistant would need Code Interpreter and File Analysis tools
+    - A creative assistant could use Image Generation tools
+  </Step>
+  
+  <Step title="Configure Tool Settings">
+    Some tools may have configurable settings or require API keys. Complete any necessary setup for each tool you've selected.
+  </Step>
+  
+  <Step title="Save Configuration">
+    Click "Save" to apply the tool configuration to your assistant.
+  </Step>
+</Steps>
+
+<Note>
+  The assistant will automatically determine when to use the attached tools based on user queries. You don't need to explicitly instruct it to use specific tools during a conversation.
+</Note>
+
+## Best Practices
+
+Follow these best practices to create effective customized assistants:
+
+1. **Focus on Specific Use Cases**: Create specialized assistants for distinct purposes rather than one general-purpose assistant.
+
+2. **Test Thoroughly**: After customizing an assistant, test it with various queries to ensure it behaves as expected.
+
+3. **Iterative Refinement**: Refine your system prompts based on how the assistant performs in real conversations.
+
+4. **Balance Tool Access**: Only attach tools that the assistant needs for its specific role to avoid unnecessary complexity.
+
+5. **Keep Updates**: Regularly review and update your assistants to incorporate new models, tools, and improved system prompts.
+
+<CardGroup>
+  <Card title="Tool Library" icon="toolbox" href="/concepts/tools">
+    Learn more about available tools
+  </Card>
+  <Card title="AI Agents" icon="robot" href="/concepts/ai-agents">
+    Understand how AI agents work
+  </Card>
+  <Card title="Customizing Tools" icon="wrench" href="/guides/customizing-tools">
+    Learn how to customize the tool library
+  </Card>
+</CardGroup> 

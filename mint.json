@@ -1,91 +1,71 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Artifact Chat",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/artifact-transparent-01.png",
+    "dark": "/artifact-transparent-01.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/artifact-transparent-01.png",
   "colors": {
     "primary": "#8B5CF6",
     "light": "#A78BFA",
     "dark": "#7C3AED",
     "anchors": {
-      "from": "#8B5CF6",
-      "to": "#A78BFA"
+      "from": "#A855F7",
+      "to": "#6366F1"
     }
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "contact@artifact.chat"
+      "name": "GitHub",
+      "url": "https://github.com/yourusername/artifact-chat"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Get Started",
+    "url": "https://artifact.chat"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Concepts",
+      "icon": "lightbulb",
+      "url": "concepts"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Guides",
+      "icon": "book",
+      "url": "guides"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart", "installation"]
+    },
+    {
+      "group": "Core Concepts",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "concepts/architecture",
+        "concepts/ai-agents",
+        "concepts/threading",
+        "concepts/tools"
       ]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+      "group": "Components",
+      "pages": ["components/chat-interface"]
     },
     {
-      "group": "API Documentation",
+      "group": "Guides",
       "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "guides/customizing-assistants",
+        "guides/customizing-tools"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
-  }
+    "github": "https://github.com/yourusername/artifact-chat",
+    "twitter": "https://twitter.com/artifactchat"
+  },
+  "customCss": ".logo-text { display: block !important; }"
 }
