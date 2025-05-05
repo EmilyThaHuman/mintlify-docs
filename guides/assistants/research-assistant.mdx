@@ -1,0 +1,165 @@
+---
+title: "Research Assistant"
+description: "An AI assistant that helps with in-depth research, information gathering, and knowledge synthesis"
+---
+
+## Key Capabilities
+
+- **Information Gathering**: Search, analyze, and collect data from various sources
+- **Critical Analysis**: Evaluate sources and information for credibility and relevance
+- **Knowledge Synthesis**: Organize and consolidate information into coherent structures
+- **Source Management**: Track and cite original sources appropriately
+- **Research Planning**: Develop methodical approaches to complex research questions
+- **Data Visualization**: Create visual representations of research findings
+
+## Setting Up Your Research Assistant
+
+Follow these steps to set up your own Research Assistant:
+
+<Steps>
+  <Step title="Create a New Assistant">
+    Navigate to your assistant dashboard and click "Create New Assistant".
+  </Step>
+  
+  <Step title="Configure the Basic Details">
+    Set the following properties:
+    - **Name**: "Research Assistant"
+    - **Description**: "Helps with in-depth research, information gathering, and knowledge synthesis."
+    - **Model**: Select a model with strong reasoning capabilities like Claude 3.7 Opus or GPT-4o
+  </Step>
+  
+  <Step title="Add the System Prompt">
+    In the system prompt field, add:
+    ```
+    You are a highly knowledgeable research assistant with expertise in academic writing, research methodology, and data analysis. Your primary goal is to help users conduct thorough research, find relevant sources, and organize information effectively.
+
+    When helping with research:
+    - Ask clarifying questions to understand the specific research topic and goals
+    - Provide balanced information from multiple perspectives
+    - Cite sources whenever possible and prioritize scholarly sources
+    - Explain complex concepts clearly using analogies when helpful
+    - Suggest relevant research questions and methodological approaches
+
+    When analyzing data:
+    - Describe appropriate statistical methods based on the research question and data type
+    - Explain how to interpret results with proper caution about limitations
+    - Suggest visualizations that would best communicate the findings
+
+    Communicate in a professional but accessible tone. Avoid overly technical jargon unless necessary, and always explain specialized terms. Prioritize accuracy over certainty, and be transparent about the limitations of your knowledge.
+    ```
+
+  </Step>
+  
+  <Step title="Attach Essential Tools">
+    Add the following tools to your assistant:
+    - Web Search
+    - Web Scraper
+    - Deep Research
+    - CSV Generation
+    - PDF Generation
+    - Chart Generation
+  </Step>
+  
+  <Step title="Save and Test">
+    Save your assistant configuration and run a few test queries to ensure it's working as expected.
+  </Step>
+</Steps>
+
+## Example Use Cases
+
+### Academic Research
+
+Conduct scholarly research for papers, theses, or academic projects with proper methodology and citation.
+
+<Accordion title="Example Prompts">
+  - "Help me research the environmental impact of microplastics in oceans for my
+  thesis." - "Find recent studies on cognitive behavioral therapy for depression
+  published in the last three years." - "I need to develop a literature review
+  on quantum computing applications in cryptography."
+</Accordion>
+
+<Note>
+  For academic research, the assistant will prioritize scholarly sources,
+  peer-reviewed journals, and established academic databases, providing proper
+  citations in formats like APA, MLA, or Chicago style.
+</Note>
+
+### Market Analysis
+
+Research market trends, competitors, and industry developments for business planning and strategy.
+
+<Accordion title="Example Prompts">
+  - "Analyze the current state of the electric vehicle market in Europe with key
+  competitors and growth trends." - "Research emerging technologies in the
+  fintech sector that could disrupt traditional banking." - "Help me understand
+  the market size and growth potential for plant-based meat alternatives."
+</Accordion>
+
+<Tip>
+  For market research, request specific data points you're interested in (market
+  size, growth rate, key players, etc.) to get more targeted results. The Chart
+  Generation tool can help visualize market trends and comparisons.
+</Tip>
+
+### Information Synthesis
+
+Gather, organize, and consolidate information from multiple sources into comprehensive reports or summaries.
+
+<Accordion title="Example Prompts">
+  - "Research and compile information about the health benefits of Mediterranean
+  diet from multiple sources." - "Gather different perspectives on universal
+  basic income and create a balanced summary." - "Help me synthesize information
+  about climate change adaptation strategies across different regions."
+</Accordion>
+
+<Warning>
+  When synthesizing information from multiple sources, it's important to verify
+  the credibility of each source. Ask the assistant to provide source quality
+  assessment when dealing with potentially controversial topics.
+</Warning>
+
+## Best Practices
+
+1. **Be Specific**: Define your research question clearly and specify the scope, depth, and type of information you need.
+
+2. **Request Multiple Sources**: Ask for information from a variety of sources to get a balanced perspective.
+
+3. **Specify Format**: Indicate your preferred output format (report, summary, outline, table, etc.) for better organization.
+
+4. **Ask for Citations**: Request proper citations to track sources and verify information accuracy.
+
+5. **Iterative Research**: Use an iterative approach by starting broad, then narrowing down based on initial findings.
+
+## Customization Options
+
+You can enhance your Research Assistant with these customizations:
+
+- **Add Academic Database Access**: Connect to specialized academic databases for scholarly research
+- **Integrate Reference Management**: Add capability to export citations to reference management software
+- **Incorporate Survey Tools**: Include tools for designing research questionnaires
+- **Add Analysis Packages**: Enable advanced statistical analysis for research data
+- **Include Visualization Enhancements**: Add specialized data visualization capabilities
+
+<CardGroup>
+  <Card
+    title="Lead Generator"
+    icon="user-plus"
+    href="/guides/assistants/lead-generator"
+  >
+    Discover our Lead Generator template
+  </Card>
+  <Card
+    title="Content Creator"
+    icon="pen-nib"
+    href="/guides/assistants/content-creator"
+  >
+    Explore our Content Creator template
+  </Card>
+  <Card
+    title="Customizing Tools"
+    icon="wrench"
+    href="/guides/customizing-tools"
+  >
+    Learn how to customize your assistant's tools
+  </Card>
+</CardGroup>{" "}

@@ -3,8 +3,6 @@ title: "Customizing Assistants"
 description: "Guide to customizing your AI assistants with different models, personas, and tools"
 ---
 
-# Customizing Assistants
-
 This guide walks you through the process of customizing your AI assistants to better meet your needs by selecting different models, setting up custom personas, and attaching specialized tools.
 
 ## Model Selection
@@ -12,7 +10,7 @@ This guide walks you through the process of customizing your AI assistants to be
 Choose from a variety of AI models from leading providers to power your assistants:
 
 <CardGroup cols={3}>
-  <Card title="OpenAI" icon="openai" iconType="duotone">
+  <Card title="OpenAI" icon={<img src="/public/images/icons/openai.jpg" className="h-6 w-6" />}>
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <span className="font-medium">GPT-4o</span>
@@ -29,37 +27,37 @@ Choose from a variety of AI models from leading providers to power your assistan
     </div>
   </Card>
   
-  <Card title="Anthropic" icon="sparkles" iconType="duotone">
+  <Card title="Anthropic" icon={<img src="/public/images/icons/claude.jpg" className="h-6 w-6" />}>
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
-        <span className="font-medium">Claude 3 Opus</span>
+        <span className="font-medium">Claude 3.7 Opus</span>
         <span className="text-xs text-gray-500">Most capable</span>
       </div>
       <div className="flex items-center gap-2">
-        <span className="font-medium">Claude 3 Sonnet</span>
+        <span className="font-medium">Claude 3.7 Sonnet</span>
         <span className="text-xs text-gray-500">Balanced</span>
       </div>
       <div className="flex items-center gap-2">
-        <span className="font-medium">Claude 3 Haiku</span>
+        <span className="font-medium">Claude 3.7 Haiku</span>
         <span className="text-xs text-gray-500">Fast & affordable</span>
       </div>
     </div>
   </Card>
   
-  <Card title="Google" icon="google" iconType="duotone">
+  <Card title="Google" icon={<img src="/public/images/icons/google.jpg" className="h-6 w-6" />}> 
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
-        <span className="font-medium">Gemini 1.5 Pro</span>
+        <span className="font-medium">Gemini 2.5 Pro</span>
         <span className="text-xs text-gray-500">Most capable</span>
       </div>
       <div className="flex items-center gap-2">
-        <span className="font-medium">Gemini 1.5 Flash</span>
+        <span className="font-medium">Gemini 2.5 Flash</span>
         <span className="text-xs text-gray-500">Fast & affordable</span>
       </div>
     </div>
   </Card>
   
-  <Card title="Meta" icon="meta" iconType="duotone">
+  <Card title="Meta" icon={<img src="/public/images/icons/meta.jpg" className="h-6 w-6" />}>
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <span className="font-medium">Llama 3 70B</span>
@@ -72,7 +70,7 @@ Choose from a variety of AI models from leading providers to power your assistan
     </div>
   </Card>
   
-  <Card title="Mistral" icon="wind" iconType="duotone">
+  <Card title="Mistral" icon={<img src="/public/images/icons/mistral.jpg" className="h-6 w-6" />}>
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <span className="font-medium">Mistral Large</span>
@@ -89,7 +87,7 @@ Choose from a variety of AI models from leading providers to power your assistan
     </div>
   </Card>
   
-  <Card title="Cohere" icon="c" iconType="duotone">
+  <Card title="Cohere" icon={<img src="/public/images/icons/cohere.jpg" className="h-6 w-6" />}>
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <span className="font-medium">Command R+</span>
@@ -101,11 +99,221 @@ Choose from a variety of AI models from leading providers to power your assistan
       </div>
     </div>
   </Card>
+  
+  <Card title="DeepSeek" icon={<img src="/public/images/icons/deepseek.jpg" className="h-6 w-6" />}>
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">DeepSeek V3</span>
+        <span className="text-xs text-gray-500">Most capable</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">DeepSeek-R1</span>
+        <span className="text-xs text-gray-500">Code expert</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Groq" icon={<img src="/public/images/icons/groq.jpg" className="h-6 w-6" />}>
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Mixtral 8x7B</span>
+        <span className="text-xs text-gray-500">Ultra-fast inference</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium">LLaMA 3 70B</span>
+        <span className="text-xs text-gray-500">High performance</span>
+      </div>
+    </div>
+  </Card>
+  
+  <Card title="Perplexity" icon={<img src="/public/images/icons/perplexity.jpg" className="h-6 w-6" />}>
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <span className="font-medium">Perplexity Sonar</span>
+        <span className="text-xs text-gray-500">Search-optimized AI</span>
+      </div>
+    </div>
+  </Card>
 </CardGroup>
 
 <Note>
-  When selecting a model, consider the trade-off between capability and cost. More powerful models like GPT-4o and Claude 3 Opus provide superior reasoning and assistance but at a higher price point.
+  When selecting a model, consider the trade-off between capability and cost. More powerful models like GPT-4o and Claude 3.7 Opus provide superior reasoning and assistance but at a higher price point.
 </Note>
+
+## In-Depth Analysis of Major AI Models: Capabilities and Strengths
+
+<Info>
+**Updated: May 2025**
+
+Each model has evolved to serve specific niches in the AI ecosystem, with trade-offs between capabilities, safety, cost, and availability. The choice of model depends heavily on the specific use case, budget constraints, and ethical considerations of the deployment environment.
+</Info>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/openai.jpg" className="h-6 w-6" /> OpenAI (ChatGPT)</div>
+
+<Accordion title="Specialized Capabilities">
+- **Creative Writing and Content Generation**: ChatGPT excels at creative writing, long-form content, coding complex programs, and generating AI images
+- **Conversational Fluidity**: Known for natural conversations and accessible, broad-use cases
+- **Structured Research Assistance**: Effective at educational content and knowledge synthesis
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Content Marketing Agency**: Generating blog posts, social media content, and marketing copy at scale
+- **Educational Institution**: Creating personalized learning materials and interactive tutoring systems
+- **Creative Writing Studio**: Developing character backstories, plot outlines, and dialogue for novels or screenplays
+- **Business Analyst**: Generating comprehensive reports, data analysis summaries, and presentation materials
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/claude.jpg" className="h-6 w-6" /> Anthropic (Claude)</div>
+
+<Accordion title="Specialized Capabilities">
+- **Coding Excellence**: Claude 3.7 Sonnet achieves state-of-the-art performance on SWE-bench Verified, which evaluates AI models' ability to solve real-world software issues
+- **Extended Thinking**: In extended thinking mode, it self-reflects before answering, which improves its performance on math, physics, instruction-following, coding, and many other tasks
+- **Long Context Understanding**: 200K token context window for complex document analysis
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Software Engineering Firm**: Solving complex codebase issues with Claude's SWE-bench capabilities for legacy system modernization
+- **Legal Research Team**: Analyzing lengthy legal documents and contracts with 200K token context window
+- **Scientific Research Lab**: Using extended thinking mode for complex problem-solving in physics and mathematics
+- **Enterprise Security Team**: Building secure AI applications with Claude's strong safety features
+- **Technical Documentation Team**: Creating comprehensive API documentation and technical specifications
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/google.jpg" className="h-6 w-6" /> Google (Gemini)</div>
+
+<Accordion title="Specialized Capabilities">
+- **Multimodal Processing**: Native multimodality across all Gemini models, handling text, images, audio, and video seamlessly
+- **Reasoning Capabilities**: From Gemini 1.5 to 2.5, all models feature advanced reasoning abilities with thinking capabilities built into core architecture
+- **Long Context Window**: Industry-leading context windows, with Gemini 1.5 Pro offering up to 1M tokens, and Gemini 2.5 Pro extending to 2M tokens
+- **Language Support**: Strong multilingual capabilities across diverse languages with cultural context understanding
+- **Integration with Google Ecosystem**: Seamless integration with Google Workspace, Cloud, and other Google services
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Medical Research Institute**: Processing and analyzing multimodal medical data (text, images, videos) for comprehensive patient assessments
+- **Architecture Firm**: Using long context windows to analyze entire building specifications, blueprints, and regulatory documents
+- **Film Production Company**: Processing video content for detailed scene analysis and automated content tagging
+- **Global Enterprise**: Leveraging Google Workspace integration for AI-powered productivity across multinational teams
+- **Educational Platform**: Creating adaptive learning systems with multimodal content understanding and generation
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/mistral.jpg" className="h-6 w-6" /> Mistral AI</div>
+
+<Accordion title="Specialized Capabilities">
+- **Multilingual Support**: Advanced capabilities across dozens of languages including European, Asian, and Middle Eastern languages
+- **Efficiency**: Models optimized for different scales - from lightweight Mistral 7B to powerful Mistral Large, all designed for efficient inference
+- **Function Calling**: Advanced tool use and API integration capabilities across the model family
+- **Open Source Options**: Mistral 7B and Mixtral models available as open-source, enabling community contributions and custom deployments
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Startup Development Team**: Using Mistral 7B for cost-effective local AI deployment with reasonable performance
+- **European Financial Institution**: Leveraging Mistral Large for multilingual compliance and regulatory analysis
+- **Open Source AI Project**: Building custom applications on top of Mixtral's open architecture
+- **Enterprise Software Company**: Using Mistral's function calling for complex workflow automation and API orchestration
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/deepseek.jpg" className="h-6 w-6" /> DeepSeek</div>
+
+<Accordion title="Specialized Capabilities">
+- **Logical Reasoning**: On MATH-500, it attains an impressive score of 97.3%, performing on par with OpenAI-o1-1217 and significantly outperforming other models
+- **Cost Efficiency**: Significantly lower training costs compared to competitors
+- **Code Competition**: DeepSeek-R1 demonstrates expert level in code competition tasks, as it achieves 2,029 Elo rating on Codeforces outperforming 96.3% human participants
+- **Open Source Advantage**: Accessible under MIT license for research and development
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Mathematics Research Department**: Solving complex mathematical proofs with 97.3% accuracy on MATH-500
+- **Competitive Programming Team**: Training for coding competitions with Codeforces-level problem solving
+- **Educational Technology Startup**: Creating affordable AI tutoring systems with cost-efficient deployment
+- **Algorithm Development Lab**: Developing and testing new algorithms with expert-level logical reasoning
+- **Academic Research Institution**: Using open-source model for reproducible AI research and modifications
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/groq.jpg" className="h-6 w-6" /> Groq</div>
+
+<Accordion title="Specialized Capabilities">
+- **Lightning-Fast Inference**: Serving the Mixtral 8x7B model at 480 tokens per second, the Groq LPU is providing one of the leading inference numbers in the industry
+- **Energy Efficiency**: The LPU delivers instant speed, unparalleled affordability, and energy efficiency at scale
+- **Real-time Applications**: Ideal for chatbots, autonomous vehicles, and robotics
+- **Low Latency**: Superior response times compared to traditional GPU solutions
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **High-Frequency Trading Firm**: Implementing ultra-low latency AI for real-time market analysis and trading decisions
+- **Autonomous Vehicle Company**: Processing sensor data with 480 tokens/second for instant decision-making
+- **Video Game Studio**: Creating responsive AI NPCs that react in real-time to player actions
+- **Live Customer Service Platform**: Providing instant AI responses with minimal latency for customer inquiries
+- **Green Tech Company**: Deploying energy-efficient AI solutions to minimize carbon footprint
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/xai.jpg" className="h-6 w-6" /> xAI (Grok)</div>
+
+<Accordion title="Specialized Capabilities">
+- **Mathematical Reasoning**: With their highest level of test-time compute, Grok 3 achieved 93.3% on this competition
+- **Complex Problem Solving**: Strong performance on graduate-level reasoning tasks
+- **Long Context Processing**: With a context window of 1 million tokens — 8 times larger than their previous models
+- **Real-time Information**: Direct integration with X (Twitter) for current data
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Social Media Analytics Company**: Leveraging real-time Twitter/X data integration for trend analysis
+- **Quantitative Research Team**: Solving complex mathematical problems for financial modeling
+- **Education Technology Platform**: Creating advanced math tutoring systems for AIME-level competitions
+- **Market Research Firm**: Analyzing large volumes of social media data with 1M token context
+- **AI Research Team**: Developing systems requiring graduate-level reasoning capabilities
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/cohere.jpg" className="h-6 w-6" /> Cohere</div>
+
+<Accordion title="Specialized Capabilities">
+- **Enterprise Applications**: Command R+ handles enterprise use cases such as categorization, workflow tool use automation, data analysis and more
+- **Multilingual RAG**: Strong capabilities for retrieval-augmented generation
+- **Business Integration**: Excellent for CRM, customer service, and automation
+- **Cost Efficiency**: command-r-08-2024: $0.15 per million input tokens, $0.60 per million output tokens
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Enterprise CRM Team**: Automating customer data categorization and workflow processes
+- **Multinational Corporation**: Implementing multilingual customer support with RAG capabilities
+- **Business Process Automation Firm**: Creating end-to-end workflow automation solutions
+- **Data Analysis Consultancy**: Building enterprise-scale data analysis pipelines with cost-efficient models
+- **HR Department**: Automating resume screening and candidate matching with advanced categorization
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/perplexity.jpg" className="h-6 w-6" /> Perplexity (Sonar)</div>
+
+<Accordion title="Specialized Capabilities">
+- **Real-time Search Integration**: Build with the best AI answer engine API, created by Perplexity. Power your products with the fastest, cheapest offering out there with search grounding
+- **Citation Generation**: Automatic source attribution for all information
+- **Fact-checking**: Superior performance on factual correctness benchmarks
+- **Cost Efficiency**: Very competitive pricing for search-enabled AI
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **News Organization**: Building real-time fact-checking systems with automatic citation generation
+- **Legal Research Platform**: Creating search-enhanced legal research tools with verified sources
+- **Academic Research Tool Developer**: Building scholarly search applications with citation tracking
+- **Market Intelligence Firm**: Developing real-time market analysis tools with web-wide research capabilities
+- **Healthcare Information Provider**: Creating medical information systems with reliable source attribution
+</Accordion>
+
+### <div className="flex items-center gap-2"><img src="/public/images/icons/openrouter.jpg" className="h-6 w-6" /> Dolphin Models</div>
+
+<Accordion title="Specialized Capabilities">
+- **Uncensored Responses**: Provides unrestricted responses without safety filters
+- **Long Context**: Features an impressive array of capabilities with a vast 256k context window
+- **Customization**: Allows full user control over system behavior
+- **Specialized Tasks**: Useful for research, creative writing, and unfiltered analysis
+</Accordion>
+
+<Accordion title="Professional Use Cases">
+- **Creative Writing Studio**: Developing edgy fiction with complex, morally ambiguous characters
+- **Security Research Lab**: Testing AI vulnerabilities and exploring edge cases without restrictions
+- **Academic AI Ethics Researcher**: Studying uncensored AI behavior for safety research
+- **Private Research Institution**: Conducting sensitive research requiring unfiltered AI responses
+- **Independent Game Developer**: Creating realistic AI characters for mature gaming content
+</Accordion>
 
 ## Customizing Name, Description, and System Prompt
 
@@ -253,10 +461,10 @@ Follow these best practices to create effective customized assistants:
   <Card title="Tool Library" icon="toolbox" href="/concepts/tools">
     Learn more about available tools
   </Card>
-  <Card title="AI Agents" icon="robot" href="/concepts/ai-agents">
-    Understand how AI agents work
-  </Card>
   <Card title="Customizing Tools" icon="wrench" href="/guides/customizing-tools">
     Learn how to customize the tool library
+  </Card>
+  <Card title="Assistant Templates" icon="robot" href="/guides/assistants/lead-generator">
+    Explore ready-to-use assistant templates
   </Card>
 </CardGroup> 

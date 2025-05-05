@@ -1,86 +1,65 @@
 ---
-title: "Quickstart"
-description: "Get started with Artifact Chat in minutes"
+title: "Introduction"
+description: "Get started with Artifact Chat"
 ---
 
-# Quickstart Guide
+# Introduction to Artifact Chat
 
-This guide will help you get Artifact Chat up and running quickly.
+Welcome to Artifact Chat, an advanced AI assistant platform featuring specialized capabilities, customizable tools, and powerful templates.
 
-## Prerequisites
+## Overview
 
-Before you begin, make sure you have:
+Artifact Chat is a comprehensive AI assistant platform designed to enhance productivity through intelligent conversation. Our platform leverages the latest AI models from leading providers like Anthropic, OpenAI, Google, and others to deliver smart, context-aware assistance for a wide range of tasks.
 
-1. **Node.js** (v16 or higher)
-2. **npm**, **yarn**, or **pnpm**
-3. **API keys** for Anthropic, OpenAI, or other supported LLM providers
+## Key Features
 
-## Step 1: Installation
+### Multiple AI Models
 
-<CodeGroup>
-```bash npm
-git clone https://github.com/yourusername/artifact-chat.git
-cd artifact-chat
-npm install
-```
+Access a variety of state-of-the-art AI models:
 
-```bash yarn
-git clone https://github.com/yourusername/artifact-chat.git
-cd artifact-chat
-yarn install
-```
+- **OpenAI**: GPT-4o, GPT-4o mini, GPT-3.5 Turbo
+- **Anthropic**: Claude 3.7 Opus, Claude 3.7 Sonnet, Claude 3.7 Haiku
+- **Google**: Gemini 2.5 Pro, Gemini 2.5 Flash
+- **And many more**: Meta, Mistral, Cohere, DeepSeek, Groq, Perplexity
 
-```bash pnpm
-git clone https://github.com/yourusername/artifact-chat.git
-cd artifact-chat
-pnpm install
-```
+### Powerful Tool Library
 
-</CodeGroup>
+Extend your assistant's capabilities with specialized tools:
 
-## Step 2: Configuration
+- **Web Tools**: Search engines, website scrapers, research assistants
+- **Image Tools**: DALL-E, Midjourney, Stable Diffusion, image analysis
+- **Data Tools**: Chart generation, CSV creation, PDF exporting
+- **Code Tools**: Code interpretation, file analysis
+- **And more**: Documentation access, GitHub integration, email management
 
-Create a `.env` file in the root directory:
+### Customizable Assistants
 
-```bash
-cp .env.example .env
-```
+Create tailored assistants for specific use cases:
 
-Edit the `.env` file to add your API keys:
+- **Personalization**: Custom names, descriptions, and system prompts
+- **Model Selection**: Choose the optimal AI model for each task
+- **Tool Integration**: Attach relevant tools to extend capabilities
+- **Templates**: Start with pre-configured templates for common needs
 
-```
-ANTHROPIC_API_KEY=your_api_key_here
-OPENAI_API_KEY=your_api_key_here
-```
+### Assistant Templates
 
-## Step 3: Start the Development Server
+Get started quickly with ready-to-use assistant templates:
 
-<CodeGroup>
-```bash npm
-npm run dev
-```
+- **Lead Generator**: Discover potential leads and prepare outreach campaigns
+- **Research Assistant**: Conduct thorough research and synthesize knowledge
+- **Content Creator**: Create engaging content for blogs, social media, and more
 
-```bash yarn
-yarn dev
-```
+## Conversation Threading
 
-```bash pnpm
-pnpm dev
-```
+Organize your work with persistent conversation threads:
 
-</CodeGroup>
-
-The development server will start at [http://localhost:3000](http://localhost:3000).
-
-## Step 4: Using Artifact Chat
-
-1. Open your browser and go to [http://localhost:3000](http://localhost:3000)
-2. Create a new chat or project
-3. Start asking questions or providing instructions
+- **Context Retention**: Maintain conversation history for natural follow-ups
+- **Organization**: Group related discussions into focused threads
+- **Persistence**: Save and resume conversations as needed
 
 <Frame>
   <img
-    src="/images/quickstart-example.png"
+    src="/public/chat-interface.png"
     alt="Artifact Chat Interface Example"
   />
 </Frame>
@@ -91,19 +70,19 @@ Explore these resources to learn more about Artifact Chat:
 
 <CardGroup cols={2}>
   <Card title="Core Concepts" icon="lightbulb" href="/concepts/architecture">
-    Learn about the architecture and core concepts behind Artifact Chat
+    Learn about the architecture and core concepts
   </Card>
   <Card title="Tool Library" icon="wrench" href="/concepts/tools">
     Explore the available tools and integrations
   </Card>
   <Card
-    title="Customization Guide"
+    title="Customizing Assistants"
     icon="sliders"
-    href="/guides/customizing-tools"
+    href="/guides/customizing-assistants"
   >
-    Customize Artifact Chat to fit your specific needs
+    Learn how to create specialized AI assistants
   </Card>
-  <Card title="API Reference" icon="code" href="/api-reference/authentication">
-    Integrate Artifact Chat with your own applications
+  <Card title="Assistant Templates" icon="robot" href="/guides/assistants/lead-generator">
+    Start with ready-to-use assistant templates
   </Card>
 </CardGroup>

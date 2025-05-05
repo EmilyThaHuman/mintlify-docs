@@ -40,7 +40,7 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction", "quickstart", "installation"]
+      "pages": ["introduction", "quickstart"]
     },
     {
       "group": "Core Concepts",
@@ -60,6 +60,14 @@
       "pages": [
         "guides/customizing-assistants",
         "guides/customizing-tools"
+      ]
+    },
+    {
+      "group": "Assistant Templates",
+      "pages": [
+        "guides/assistants/lead-generator",
+        "guides/assistants/research-assistant",
+        "guides/assistants/content-creator"
       ]
     }
   ],
