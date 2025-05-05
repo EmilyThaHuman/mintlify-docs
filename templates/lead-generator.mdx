@@ -1,0 +1,146 @@
+---
+title: "Lead Generator Assistant"
+description: "An AI assistant that discovers potential leads, finds contact information, and prepares exports for outreach campaigns"
+---
+
+## Key Capabilities
+
+- **Business Discovery**: Search for businesses by location, industry, or other criteria
+- **Contact Information Extraction**: Pull phone numbers, email addresses, and websites from business listings
+- **Website Content Analysis**: Extract key information from business websites
+- **Export Generation**: Create well-formatted CSVs and PDFs for your outreach campaigns
+- **Competitor Research**: Find and analyze competitors in specific market segments
+
+## Setting Up Your Lead Generator
+
+Follow these steps to set up your own Lead Generator assistant:
+
+<Steps>
+  <Step title="Create a New Assistant">
+    Navigate to your assistant dashboard and click "Create New Assistant".
+  </Step>
+
+  <Step title="Configure the Basic Details">
+    Set the following properties: 
+    - **Name**: "Lead Generator" 
+    - **Description**: "Discovers potential leads, finds contact info, and prepares CSV or PDF exports for outreach campaigns." 
+    - **Model**: Select a model with strong tool-use capabilities like Claude 3.7 Sonnet or GPT-4o
+  </Step>
+
+  <Step title="Add the System Prompt">
+    In the system prompt field, add: 
+    ```
+    You are a B2B lead generation expert. Use tools to find businesses, extract their data, and generate well-formatted outputs for outreach.
+    
+    When helping users find leads:
+    - Ask clarifying questions about target industries, locations, or specific criteria
+    - Provide structured, well-organized data with relevant contact information
+    - Suggest additional data points that might be valuable for their outreach
+    - Format exports in a way that's immediately usable for marketing campaigns
+    
+    Always maintain a professional, straightforward tone. Prioritize data quality and accuracy over quantity. Be transparent about the limitations of the search results and suggest alternatives when appropriate.
+    ```
+  </Step>
+
+  <Step title="Attach Essential Tools">
+    Add the following tools to your assistant: 
+    - Places Search 
+    - Web Search 
+    - Web Scraper 
+    - CSV Generation 
+    - PDF Generation
+  </Step>
+
+  <Step title="Save and Test">
+    Save your assistant configuration and run a few test queries to ensure it's working as expected.
+  </Step>
+</Steps>
+
+## Example Use Cases
+
+### Local Lead Prospecting
+
+Quickly find businesses in specific locations and export their contact details for local outreach campaigns.
+
+<Accordion title="Example Prompts">
+  - "Find top-rated yoga studios in Los Angeles and prepare a CSV of their names, phone numbers, and websites."
+  - "Search for marketing agencies in Austin, Texas and extract their contact details."
+  - "Get me a list of AI startups in San Francisco."
+</Accordion>
+
+<Note>
+  For local lead generation, the Places Search tool is particularly effective as it can retrieve accurate location-based information including business hours, ratings, and contact details.
+</Note>
+
+### Competitor Research and Data Extraction
+
+Identify competitors in your market space and extract key information from their websites to inform your strategic planning.
+
+<Accordion title="Example Prompts">
+  - "Give me a list of competitors to Notion in the productivity space and extract their homepage copy."
+  - "Find 5 personal finance startups and pull the About page copy for each."
+  - "Get landing page screenshots and headings of meditation apps."
+</Accordion>
+
+<Tip>
+  When conducting competitor research, use the Web Scraper tool with the screenshot format option to capture visual elements like pricing tables or feature comparisons.
+</Tip>
+
+### Event-Based Lead Discovery
+
+Find potential leads connected to specific events, conferences, or industry gatherings for timely outreach opportunities.
+
+<Accordion title="Example Prompts">
+  - "Find sponsors of the AI Summit 2024 and export their company names and contact pages."
+  - "Who are the exhibitors at CES 2025 related to health tech?"
+  - "Create a PDF of top fintech speakers at Money20/20 and their LinkedIn profiles."
+</Accordion>
+
+<Warning>
+  When scraping event websites or social profiles, be mindful of platform terms of service and privacy considerations. Always use extracted contact information in accordance with applicable regulations.
+</Warning>
+
+## Best Practices
+
+1. **Be Specific**: The more specific your request, the more targeted and useful the leads will be. Include industry, location, company size, or other relevant criteria.
+
+2. **Review and Refine**: Examine initial results and refine your queries to narrow down to the most promising leads.
+
+3. **Multi-Step Approach**: For comprehensive research, use a multi-step approach - first identifying potential leads, then requesting deeper information on the most promising ones.
+
+4. **Verify Information**: Always verify critical contact information before using it in campaigns, as web-scraped data may occasionally be outdated.
+
+5. **Export Strategy**: Choose the right export format for your workflow - CSVs for CRM imports, PDFs for executive summaries or visual reports.
+
+## Customization Options
+
+You can enhance your Lead Generator assistant with these customizations:
+
+- **Add CRM Integration Tools**: Enable direct export to your CRM system
+- **Include Email Template Generation**: Add tools to draft initial outreach emails based on the leads discovered
+- **Incorporate Data Enrichment Tools**: Add capabilities to enrich basic contact data with additional company information
+- **Enable Social Media Search**: Add tools to find social media profiles for discovered businesses
+
+<CardGroup>
+  <Card
+    title="Research Assistant"
+    icon="magnifying-glass"
+    href="/templates/research-assistant"
+  >
+    Discover our Research Assistant template
+  </Card>
+  <Card
+    title="Content Creator"
+    icon="pen-nib"
+    href="/templates/content-creator"
+  >
+    Explore our Content Creator template
+  </Card>
+  <Card
+    title="Customizing Tools"
+    icon="wrench"
+    href="/guides/customizing-tools"
+  >
+    Learn how to customize your assistant's tools
+  </Card>
+</CardGroup>

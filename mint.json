@@ -35,6 +35,11 @@
       "name": "Guides",
       "icon": "book",
       "url": "guides"
+    },
+    {
+      "name": "Templates",
+      "icon": "clone",
+      "url": "templates"
     }
   ],
   "navigation": [
@@ -65,9 +70,9 @@
     {
       "group": "Assistant Templates",
       "pages": [
-        "guides/assistants/lead-generator",
-        "guides/assistants/research-assistant",
-        "guides/assistants/content-creator"
+        "templates/lead-generator",
+        "templates/research-assistant",
+        "templates/content-creator"
       ]
     }
   ],
