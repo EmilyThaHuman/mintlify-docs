@@ -3,8 +3,10 @@
   "name": "Artifact Chat",
   "logo": {
     "light": "/artifact-transparent-01.png",
-    "dark": "/artifact-transparent-01.png"
+    "dark": "/artifact-transparent-01.png",
+    "href": "/"
   },
+  "logoText": "Artifact Chat",
   "favicon": "/artifact-transparent-01.png",
   "colors": {
     "primary": "#8B5CF6",
@@ -35,11 +37,6 @@
       "name": "Guides",
       "icon": "book",
       "url": "guides"
-    },
-    {
-      "name": "Templates",
-      "icon": "clone",
-      "url": "templates"
     }
   ],
   "navigation": [
@@ -51,14 +48,8 @@
       "group": "Core Concepts",
       "pages": [
         "concepts/architecture",
-        "concepts/ai-agents",
-        "concepts/threading",
         "concepts/tools"
       ]
-    },
-    {
-      "group": "Components",
-      "pages": ["components/chat-interface"]
     },
     {
       "group": "Guides",
@@ -70,15 +61,16 @@
     {
       "group": "Assistant Templates",
       "pages": [
-        "templates/lead-generator",
-        "templates/research-assistant",
-        "templates/content-creator"
+        "guides/assistants/lead-generator",
+        "guides/assistants/research-assistant",
+        "guides/assistants/content-creator"
       ]
     }
   ],
   "footerSocials": {
     "github": "https://github.com/yourusername/artifact-chat",
-    "twitter": "https://twitter.com/artifactchat"
+    "x": "https://twitter.com/artifactchat",
+    "linkedin": "https://www.linkedin.com/company/artifact-chat"
   },
-  "customCss": ".logo-text { display: block !important; }"
+  "customCss": "nav .flex-none img { max-height: 30px !important; } nav .flex-none span { display: inline-block !important; margin-left: 8px !important; font-weight: 600 !important; }"
 }

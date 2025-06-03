@@ -21,34 +21,38 @@ Follow these steps to set up your own Lead Generator assistant:
   </Step>
 
   <Step title="Configure the Basic Details">
-    Set the following properties: - **Name**: "Lead Generator" -
-    **Description**: "Discovers potential leads, finds contact info, and
-    prepares CSV or PDF exports for outreach campaigns." - **Model**: Select a
-    model with strong tool-use capabilities like Claude 3.7 Sonnet or GPT-4o
+    Set the following properties: 
+    - **Name**: "Lead Generator" 
+    - **Description**: "Discovers potential leads, finds contact info, and prepares CSV or PDF exports for outreach campaigns." 
+    - **Model**: Select a model with strong tool-use capabilities like Claude 3.7 Sonnet or GPT-4o
   </Step>
 
   <Step title="Add the System Prompt">
-    In the system prompt field, add: ``` You are a B2B lead generation expert.
-    Use tools to find businesses, extract their data, and generate
-    well-formatted outputs for outreach. When helping users find leads: - Ask
-    clarifying questions about target industries, locations, or specific
-    criteria - Provide structured, well-organized data with relevant contact
-    information - Suggest additional data points that might be valuable for
-    their outreach - Format exports in a way that's immediately usable for
-    marketing campaigns Always maintain a professional, straightforward tone.
-    Prioritize data quality and accuracy over quantity. Be transparent about the
-    limitations of the search results and suggest alternatives when appropriate.
+    In the system prompt field, add: 
+    ```
+    You are a B2B lead generation expert. Use tools to find businesses, extract their data, and generate well-formatted outputs for outreach.
+    
+    When helping users find leads:
+    - Ask clarifying questions about target industries, locations, or specific criteria
+    - Provide structured, well-organized data with relevant contact information
+    - Suggest additional data points that might be valuable for their outreach
+    - Format exports in a way that's immediately usable for marketing campaigns
+    
+    Always maintain a professional, straightforward tone. Prioritize data quality and accuracy over quantity. Be transparent about the limitations of the search results and suggest alternatives when appropriate.
     ```
   </Step>
 
   <Step title="Attach Essential Tools">
-    Add the following tools to your assistant: - Places Search - Web Search -
-    Web Scraper - CSV Generation - PDF Generation
+    Add the following tools to your assistant: 
+    - Places Search 
+    - Web Search 
+    - Web Scraper 
+    - CSV Generation 
+    - PDF Generation
   </Step>
 
   <Step title="Save and Test">
-    Save your assistant configuration and run a few test queries to ensure it's
-    working as expected.
+    Save your assistant configuration and run a few test queries to ensure it's working as expected.
   </Step>
 </Steps>
 
@@ -59,16 +63,13 @@ Follow these steps to set up your own Lead Generator assistant:
 Quickly find businesses in specific locations and export their contact details for local outreach campaigns.
 
 <Accordion title="Example Prompts">
-  - "Find top-rated yoga studios in Los Angeles and prepare a CSV of their
-  names, phone numbers, and websites." - "Search for marketing agencies in
-  Austin, Texas and extract their contact details." - "Get me a list of AI
-  startups in San Francisco."
+  - "Find top-rated yoga studios in Los Angeles and prepare a CSV of their names, phone numbers, and websites."
+  - "Search for marketing agencies in Austin, Texas and extract their contact details."
+  - "Get me a list of AI startups in San Francisco."
 </Accordion>
 
 <Note>
-  For local lead generation, the Places Search tool is particularly effective as
-  it can retrieve accurate location-based information including business hours,
-  ratings, and contact details.
+  For local lead generation, the Places Search tool is particularly effective as it can retrieve accurate location-based information including business hours, ratings, and contact details.
 </Note>
 
 ### Competitor Research and Data Extraction
@@ -76,16 +77,13 @@ Quickly find businesses in specific locations and export their contact details f
 Identify competitors in your market space and extract key information from their websites to inform your strategic planning.
 
 <Accordion title="Example Prompts">
-  - "Give me a list of competitors to Notion in the productivity space and
-  extract their homepage copy." - "Find 5 personal finance startups and pull the
-  About page copy for each." - "Get landing page screenshots and headings of
-  meditation apps."
+  - "Give me a list of competitors to Notion in the productivity space and extract their homepage copy."
+  - "Find 5 personal finance startups and pull the About page copy for each."
+  - "Get landing page screenshots and headings of meditation apps."
 </Accordion>
 
 <Tip>
-  When conducting competitor research, use the Web Scraper tool with the
-  screenshot format option to capture visual elements like pricing tables or
-  feature comparisons.
+  When conducting competitor research, use the Web Scraper tool with the screenshot format option to capture visual elements like pricing tables or feature comparisons.
 </Tip>
 
 ### Event-Based Lead Discovery
@@ -93,16 +91,13 @@ Identify competitors in your market space and extract key information from their
 Find potential leads connected to specific events, conferences, or industry gatherings for timely outreach opportunities.
 
 <Accordion title="Example Prompts">
-  - "Find sponsors of the AI Summit 2024 and export their company names and
-  contact pages." - "Who are the exhibitors at CES 2025 related to health tech?"
-  - "Create a PDF of top fintech speakers at Money20/20 and their LinkedIn
-  profiles."
+  - "Find sponsors of the AI Summit 2024 and export their company names and contact pages."
+  - "Who are the exhibitors at CES 2025 related to health tech?"
+  - "Create a PDF of top fintech speakers at Money20/20 and their LinkedIn profiles."
 </Accordion>
 
 <Warning>
-  When scraping event websites or social profiles, be mindful of platform terms
-  of service and privacy considerations. Always use extracted contact
-  information in accordance with applicable regulations.
+  When scraping event websites or social profiles, be mindful of platform terms of service and privacy considerations. Always use extracted contact information in accordance with applicable regulations.
 </Warning>
 
 ## Best Practices
@@ -130,14 +125,14 @@ You can enhance your Lead Generator assistant with these customizations:
   <Card
     title="Research Assistant"
     icon="magnifying-glass"
-    href="/guides/assistants/research-assistant"
+    href="/templates/research-assistant"
   >
     Discover our Research Assistant template
   </Card>
   <Card
     title="Content Creator"
     icon="pen-nib"
-    href="/guides/assistants/content-creator"
+    href="/templates/content-creator"
   >
     Explore our Content Creator template
   </Card>
@@ -148,4 +143,4 @@ You can enhance your Lead Generator assistant with these customizations:
   >
     Learn how to customize your assistant's tools
   </Card>
-</CardGroup>{" "}
+</CardGroup>
